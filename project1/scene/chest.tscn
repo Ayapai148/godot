@@ -1,0 +1,227 @@
+[gd_scene load_steps=26 format=3 uid="uid://4rw48dv5r06t"]
+
+[ext_resource type="Texture2D" uid="uid://brjb815kgkwqm" path="res://dec/анимация закрытия.png" id="1_vtmvd"]
+[ext_resource type="Script" path="res://script/chest.gd" id="1_xluy8"]
+[ext_resource type="Texture2D" uid="uid://d1r1128irnomt" path="res://dec/Sprite-0002-Sheet.png" id="2_dbk33"]
+[ext_resource type="Texture2D" uid="uid://dw0wu1c7jyw5n" path="res://dec/анимация открытия.png" id="3_3332n"]
+[ext_resource type="PackedScene" uid="uid://b3ns5wne3lott" path="res://scene/slot.tscn" id="5_kw2i7"]
+[ext_resource type="AudioStream" uid="uid://b8o2edvobi4bg" path="res://sound/946.mp3" id="6_1e73q"]
+[ext_resource type="AudioStream" uid="uid://dyavdo1p7lpqe" path="res://sound/950.mp3" id="7_tow6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vor4s"]
+size = Vector2(44, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0et4m"]
+atlas = ExtResource("1_vtmvd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn32o"]
+atlas = ExtResource("1_vtmvd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvmh1"]
+atlas = ExtResource("1_vtmvd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0yx3"]
+atlas = ExtResource("1_vtmvd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k27qf"]
+atlas = ExtResource("1_vtmvd")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xon1x"]
+atlas = ExtResource("2_dbk33")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql3w5"]
+atlas = ExtResource("3_3332n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hxtq"]
+atlas = ExtResource("3_3332n")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s745"]
+atlas = ExtResource("3_3332n")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcryg"]
+atlas = ExtResource("3_3332n")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy1it"]
+atlas = ExtResource("3_3332n")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hegyr"]
+atlas = ExtResource("3_3332n")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejynk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0et4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn32o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvmh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0yx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k27qf")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xon1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql3w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hxtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s745")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcryg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy1it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hegyr")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3gjd"]
+size = Vector2(51, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgeg2"]
+size = Vector2(51, 26)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xk4be"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0yg1"]
+radius = 6.35566
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 5
+script = ExtResource("1_xluy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_vor4s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -1)
+scale = Vector2(0.65625, 0.71875)
+sprite_frames = SubResource("SpriteFrames_ejynk")
+autoplay = "default"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 235.0
+offset_bottom = 60.0
+scale = Vector2(0.200646, 0.202867)
+theme_override_font_sizes/font_size = 60
+text = "открыть"
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_q3gjd")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_wgeg2")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="inventory" type="GridContainer" parent="GUI"]
+offset_left = 11.0
+offset_top = 164.0
+offset_right = 139.0
+offset_bottom = 292.0
+scale = Vector2(1.99183, 1.78845)
+columns = 3
+
+[node name="slot" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="TextureRect" parent="GUI/inventory/slot" index="0"]
+texture = SubResource("ViewportTexture_xk4be")
+
+[node name="slot2" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot3" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot4" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot5" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot6" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot7" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot8" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="slot9" parent="GUI/inventory" instance=ExtResource("5_kw2i7")]
+layout_mode = 2
+
+[node name="Area2D3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+scale = Vector2(4.88, 2.84)
+shape = SubResource("CircleShape2D_j0yg1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="open" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("6_1e73q")
+
+[node name="close" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("7_tow6h")
+pitch_scale = 1.33
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="body_exited" from="Area2D3" to="." method="_on_area_2d_3_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="GUI/inventory/slot"]

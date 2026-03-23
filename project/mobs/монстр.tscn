@@ -1,0 +1,154 @@
+[gd_scene load_steps=22 format=3 uid="uid://xxpsmrndcndi"]
+
+[ext_resource type="Script" path="res://mobs/монстр.gd" id="1_4kfv0"]
+[ext_resource type="Texture2D" uid="uid://bc6gijwu5ih7x" path="res://mobs/скелет.png" id="1_w65xp"]
+[ext_resource type="Texture2D" uid="uid://bal6c37yc3s3d" path="res://mobs/ходьба скелета.png" id="2_thgqy"]
+[ext_resource type="Texture2D" uid="uid://djoyepk43g6kt" path="res://mobs/Sprite-0001-Sheet.png" id="3_uf6em"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o638h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70tnl"]
+atlas = ExtResource("1_w65xp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laom2"]
+atlas = ExtResource("1_w65xp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bst0g"]
+atlas = ExtResource("1_w65xp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bg82"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ciev"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wutem"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxim1"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hog0x"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxhpy"]
+atlas = ExtResource("3_uf6em")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aelf"]
+atlas = ExtResource("2_thgqy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwy6a"]
+atlas = ExtResource("2_thgqy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4exnw"]
+atlas = ExtResource("2_thgqy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_guowe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70tnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laom2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bst0g")
+}],
+"loop": true,
+"name": &"пассив",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bg82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ciev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wutem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxim1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hog0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxhpy")
+}],
+"loop": false,
+"name": &"смерть",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aelf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwy6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4exnw")
+}],
+"loop": true,
+"name": &"ходьба",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3ixk"]
+radius = 142.056
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5256y"]
+size = Vector2(8, 1.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l71gy"]
+size = Vector2(22, 1.875)
+
+[node name="скелет" type="CharacterBody2D"]
+script = ExtResource("1_4kfv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o638h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.13687e-13, -1)
+scale = Vector2(0.578125, 0.609375)
+sprite_frames = SubResource("SpriteFrames_guowe")
+animation = &"пассив"
+autoplay = "пассив"
+
+[node name="agro_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
+shape = SubResource("CircleShape2D_b3ixk")
+
+[node name="смерть" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="смерть"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_5256y")
+
+[node name="смерть2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="смерть2"]
+position = Vector2(0, 0.0625)
+shape = SubResource("RectangleShape2D_l71gy")
+
+[connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
+[connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
+[connection signal="body_entered" from="смерть" to="." method="_on_смерть_body_entered"]
+[connection signal="body_entered" from="смерть2" to="." method="_on_смерть2_body_entered"]

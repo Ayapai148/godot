@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://ovfs226nyxs4"]
+
+[ext_resource type="Texture2D" uid="uid://daebbmbwlpj7m" path="res://fons/Без имени-2.png" id="1_uilna"]
+[ext_resource type="Texture2D" uid="uid://b4xkolrakdyl6" path="res://car/Sprite-0003-Recovered-Sheet.png" id="2_ium81"]
+[ext_resource type="Texture2D" uid="uid://x5b0nhrbuovj" path="res://car/Sprite-0003-Recovered.png" id="3_r68m7"]
+[ext_resource type="Texture2D" uid="uid://blls3xn7k1eit" path="res://fons/circle.png" id="4_k2nhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbgl5"]
+atlas = ExtResource("2_ium81")
+region = Rect2(124, 0, 124, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ykbq"]
+atlas = ExtResource("2_ium81")
+region = Rect2(0, 0, 124, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj5ta"]
+atlas = ExtResource("3_r68m7")
+region = Rect2(0, 0, 124, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sfuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbgl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ykbq")
+}],
+"loop": true,
+"name": &"car_go",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj5ta")
+}],
+"loop": true,
+"name": &"car_stop",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="БезИмени-2" type="Sprite2D" parent="."]
+position = Vector2(2.46637, 10)
+scale = Vector2(0.138187, 0.0342224)
+texture = ExtResource("1_uilna")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.46637, 0)
+sprite_frames = SubResource("SpriteFrames_2sfuu")
+animation = &"car_stop"
+autoplay = "car_go"
+
+[node name="lanterns" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="lanterns"]
+position = Vector2(-47.1936, -9.6175)
+scale = Vector2(0.0200086, -0.0234562)
+energy = 2.0
+texture = ExtResource("4_k2nhw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lanterns"]
+position = Vector2(-47.1936, 3)
+scale = Vector2(0.0200086, -0.0234562)
+energy = 2.11
+texture = ExtResource("4_k2nhw")
+
+[node name="PointLight2D3" type="PointLight2D" parent="lanterns"]
+position = Vector2(-74.1935, 7)
+scale = Vector2(0.394516, 0.0907067)
+energy = 2.0
+texture = ExtResource("4_k2nhw")

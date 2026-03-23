@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3gge0drgnk6v"]
+
+[ext_resource type="PackedScene" uid="uid://3gge0drgnk6v" path="res://scene/animated_sprite_2d.tscn" id="1_gwr4a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_gwr4a")]
+frame_progress = 0.904193

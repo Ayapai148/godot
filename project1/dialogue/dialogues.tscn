@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://6tgc2675kn3k"]
+
+[ext_resource type="Script" path="res://dialogue/dialogues.gd" id="1_2cr01"]
+[ext_resource type="Texture2D" uid="uid://c1wpjs3ppyqiu" path="res://dialogue/Sprite-0001.png" id="2_wjxh4"]
+[ext_resource type="Texture2D" uid="uid://bx3evetmi0ex3" path="res://textura/i.webp" id="3_ogrgt"]
+[ext_resource type="AudioStream" uid="uid://bytbv6yamrnws" path="res://sound/CL Claps.wav" id="4_7ebr1"]
+[ext_resource type="AudioStream" uid="uid://ph03l1rqoijp" path="res://sound/523408__evretro__8-bit-wavering-text-scroll-f2-203-a08-3.wav" id="5_3ajw6"]
+
+[node name="dialogues" type="CanvasLayer"]
+script = ExtResource("1_2cr01")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = 376.0
+offset_top = 328.0
+offset_right = 728.0
+offset_bottom = 680.0
+texture = ExtResource("2_wjxh4")
+metadata/_edit_use_anchors_ = true
+
+[node name="text" type="Label" parent="."]
+offset_left = 408.0
+offset_top = 424.0
+offset_right = 696.0
+offset_bottom = 576.0
+justification_flags = 131
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(552, 503.5)
+scale = Vector2(1.1, 0.584375)
+texture = ExtResource("3_ogrgt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ebr1")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3ajw6")
+volume_db = 11.119
+pitch_scale = 0.7
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Timer4" type="Timer" parent="."]
+wait_time = 6.0
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://gxsnn20206ic"]
+
+[ext_resource type="Texture2D" uid="uid://cxb8n8grobql8" path="res://sprites/1618829893_34-phonoteka_org-p-pikselnie-foni-dlya-rabochego-stola-35.jpg" id="1_ljl4h"]
+
+[node name="ParallaxBackground3" type="ParallaxBackground"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="161882989334-phonotekaOrg-p-pikselnie-foni-dlya-rabochego-stola-35" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(582, 319)
+scale = Vector2(0.603646, 0.596296)
+texture = ExtResource("1_ljl4h")

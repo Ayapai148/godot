@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ri6uct7afmx"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_0bqym"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0bqym")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect"]
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 31.0
+visible_characters = 0
+visible_ratio = 0.0

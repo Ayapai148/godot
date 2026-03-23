@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://brigm02jymcv7"]
+
+[ext_resource type="Script" path="res://katscene_сложный.gd" id="1_s5xof"]
+[ext_resource type="Texture2D" uid="uid://cajaexsyxin70" path="res://image/6407491e107ff782a922589e7ec71505.jpg" id="2_1g6n5"]
+
+[sub_resource type="Animation" id="Animation_ijuvn"]
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.33333, 2.46667, 2.6, 2.7, 2.83333, 2.96667, 3.1, 3.26667, 3.36667, 3.5, 3.63333, 3.73333, 3.86667, 4, 4.13333, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(570, 328), Vector2(570, 328), Vector2(600, 340), Vector2(570, 328), Vector2(520, 300), Vector2(570, 328), Vector2(590, 290), Vector2(570, 328), Vector2(550, 360), Vector2(570, 328), Vector2(600, 340), Vector2(570, 328), Vector2(520, 300), Vector2(570, 328), Vector2(590, 290), Vector2(570, 328), Vector2(550, 360), Vector2(570, 328)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.06667, 2.4, 3.26667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.891022, 0.00230205, 0.0012617, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dce3v"]
+resource_name = "animation_camera"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.33333, 2.46667, 2.6, 2.7, 2.83333, 2.96667, 3.06667, 3.16667, 3.26667, 3.36667, 3.46667, 3.56667, 3.66667, 3.76667, 3.86667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(570, 328), Vector2(570, 328), Vector2(600, 340), Vector2(570, 328), Vector2(520, 300), Vector2(570, 328), Vector2(590, 290), Vector2(570, 328), Vector2(550, 360), Vector2(570, 328), Vector2(600, 340), Vector2(570, 328), Vector2(520, 300), Vector2(570, 328), Vector2(590, 290), Vector2(570, 328), Vector2(550, 360), Vector2(570, 328)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.06667, 2.4, 3.26667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.891022, 0.00230205, 0.0012617, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cart3"]
+_data = {
+"RESET": SubResource("Animation_ijuvn"),
+"animation_camera": SubResource("Animation_dce3v")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s5xof")
+
+[node name="6407491e107Ff782a922589e7Ec71505" type="Sprite2D" parent="."]
+position = Vector2(589, 363)
+scale = Vector2(4.09795, 2.61688)
+texture = ExtResource("2_1g6n5")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 345.0
+offset_top = 281.0
+offset_right = 795.0
+offset_bottom = 422.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "        ВЫЖИВИ 
+ЛЮБОЙ ЦЕНОЙ!!!!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(570, 328)
+
+[node name="Label2" type="Label" parent="Camera2D"]
+offset_left = -140.0
+offset_top = -313.0
+offset_right = 133.0
+offset_bottom = -244.0
+theme_override_font_sizes/font_size = 50
+text = "СЛОЖНЫЙ
+"
+
+[node name="camera_anima" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_cart3")
+}
+
+[node name="next_scene" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="next_scene" to="." method="_on_next_scene_timeout"]

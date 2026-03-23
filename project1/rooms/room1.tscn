@@ -1,0 +1,132 @@
+[gd_scene load_steps=14 format=3 uid="uid://caud754hri23g"]
+
+[ext_resource type="Texture2D" uid="uid://ncmt6gvtu2gv" path="res://fons/0ea178605165688fadd58b106c067c33.jpg" id="1_6b8tt"]
+[ext_resource type="Script" path="res://script/base_scene.gd" id="1_kiwot"]
+[ext_resource type="Texture2D" uid="uid://ckdn2siq5ui7w" path="res://dec/Sprite-0002.png" id="1_njpk4"]
+[ext_resource type="Texture2D" uid="uid://d3ubr7mgmhk1t" path="res://dec/кровать.png" id="4_eud17"]
+[ext_resource type="PackedScene" uid="uid://4rw48dv5r06t" path="res://scene/chest.tscn" id="6_n6sdo"]
+[ext_resource type="PackedScene" uid="uid://nvivmf24618h" path="res://scene/door.tscn" id="7_1d7dg"]
+[ext_resource type="Texture2D" uid="uid://dwblb16uhmd87" path="res://dec/шкаф.png" id="8_viv0w"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tw31"]
+texture = ExtResource("1_njpk4")
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0 = 0
+0:0/0/modulate = Color(0.380392, 0.380392, 0.380392, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+1:1/0 = 0
+1:1/0/modulate = Color(0.34902, 0.34902, 0.34902, 1)
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_26wu6"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4tw31")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14jvr"]
+size = Vector2(47.6425, 12.7995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_110pf"]
+size = Vector2(20, 12.6924)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1r5ju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hssjy"]
+size = Vector2(32, 9)
+
+[node name="room" type="Node2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_kiwot")
+
+[node name="0Ea178605165688Fadd58b106c067c33" type="Sprite2D" parent="."]
+position = Vector2(288, 192)
+texture = ExtResource("1_6b8tt")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_26wu6")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 524288, 0, 1, 589824, 0, 1, 655360, 0, 1, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 131072, 1, 65550, 65536, 0, 131086, 65536, 0, 196622, 65536, 0, 262158, 65536, 0, 327694, 65536, 0, 393230, 65536, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 65536, 0, 655374, 65536, 0, 65537, 0, 0, 131073, 65536, 1, 196609, 65536, 1, 65538, 0, 0, 131074, 65536, 1, 196610, 65536, 1, 65539, 0, 0, 131075, 65536, 1, 196611, 65536, 1, 65540, 0, 0, 131076, 65536, 1, 196612, 65536, 1, 65541, 0, 0, 131077, 65536, 1, 196613, 65536, 1, 65542, 0, 0, 131078, 65536, 1, 196614, 65536, 1, 65543, 0, 0, 131079, 65536, 1, 196615, 65536, 1, 65545, 0, 0, 65544, 0, 0, 131080, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 196616, 65536, 1, 65546, 0, 0, 131082, 65536, 1, 196618, 65536, 1, 65547, 0, 0, 131083, 65536, 1, 196619, 65536, 1, 65548, 0, 0, 131084, 65536, 1, 196620, 65536, 1, 65549, 0, 0, 131085, 65536, 1, 196621, 65536, 1, 262145, 0, 2, 327681, 0, 2, 393217, 0, 2, 458753, 0, 2, 524289, 0, 2, 589825, 0, 2, 655361, 0, 2, 262146, 0, 2, 327682, 0, 2, 393218, 0, 2, 458754, 0, 2, 524290, 0, 2, 589826, 0, 2, 655362, 0, 2, 262147, 0, 2, 327683, 0, 2, 393219, 0, 2, 458755, 0, 2, 524291, 0, 2, 589827, 0, 2, 655363, 0, 2, 262148, 0, 2, 327684, 0, 2, 393220, 0, 2, 458756, 0, 2, 524292, 0, 2, 589828, 0, 2, 655364, 0, 2, 262149, 0, 2, 327685, 0, 2, 393221, 0, 2, 458757, 0, 2, 524293, 0, 2, 589829, 0, 2, 655365, 0, 2, 262150, 0, 2, 327686, 0, 2, 393222, 0, 2, 458758, 0, 2, 524294, 0, 2, 589830, 0, 2, 655366, 0, 2, 262151, 0, 2, 327687, 0, 2, 393223, 0, 2, 458759, 0, 2, 524295, 0, 2, 589831, 0, 2, 655367, 0, 2, 262152, 0, 2, 327688, 0, 2, 393224, 0, 2, 458760, 0, 2, 524296, 0, 2, 589832, 0, 2, 655368, 0, 2, 262153, 0, 2, 327689, 0, 2, 393225, 0, 2, 458761, 0, 2, 524297, 0, 2, 589833, 0, 2, 655369, 0, 2, 262154, 0, 2, 327690, 0, 2, 393226, 0, 2, 458762, 0, 2, 524298, 0, 2, 589834, 0, 2, 655370, 0, 2, 262155, 0, 2, 327691, 0, 2, 393227, 0, 2, 458763, 0, 2, 524299, 0, 2, 589835, 0, 2, 655371, 0, 2, 262156, 0, 2, 327692, 0, 2, 393228, 0, 2, 458764, 0, 2, 524300, 0, 2, 589836, 0, 2, 655372, 0, 2, 262157, 0, 2, 327693, 0, 2, 393229, 0, 2, 458765, 0, 2, 524301, 0, 2, 589837, 0, 2, 655373, 0, 2)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+energy = 0.95
+blend_mode = 1
+max_distance = 10002.0
+
+[node name="room" type="CharacterBody2D" parent="."]
+
+[node name="Кровать" type="Sprite2D" parent="room"]
+position = Vector2(178, 73)
+scale = Vector2(1.38433, 1.38433)
+texture = ExtResource("4_eud17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room"]
+position = Vector2(189.5, 66)
+scale = Vector2(1.40631, 1.40631)
+shape = SubResource("RectangleShape2D_14jvr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Шкаф" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(115, 49)
+texture = ExtResource("8_viv0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(116, 37.1433)
+scale = Vector2(2.97134, 2.97134)
+shape = SubResource("RectangleShape2D_110pf")
+
+[node name="Area2D" parent="." instance=ExtResource("6_n6sdo")]
+position = Vector2(38, 70)
+
+[node name="TextureRect" parent="Area2D/GUI/inventory/slot" index="0"]
+texture = SubResource("ViewportTexture_1r5ju")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 240, 0, 240, 176, 136, 176, 136, 184, 104, 184, 104, 176, 0, 176, 0, 8, -112, 144, 32, 280, 368, 248, 352, 8, 208, -24)
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="Appearances" type="Marker2D" parent="markers"]
+position = Vector2(120, 154)
+
+[node name="scene_trigger" parent="." instance=ExtResource("7_1d7dg")]
+position = Vector2(119, 169)
+connected_scene = "node_2d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_trigger"]
+position = Vector2(1, 11.5)
+shape = SubResource("RectangleShape2D_hssjy")
+
+[editable path="Area2D"]
+[editable path="Area2D/GUI/inventory/slot"]

@@ -1,0 +1,428 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8fvurx5l7d4y"]
+
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_e18vq"]
+[ext_resource type="AudioStream" uid="uid://dserijxh10r6j" path="res://sound/forest-night-2.mp3" id="2_27drc"]
+[ext_resource type="Shader" path="res://шейдеры/test_world.gdshader" id="2_jogtt"]
+[ext_resource type="Texture2D" uid="uid://bl86xw2d7aqwg" path="res://textures/земля.jpg" id="2_n43oe"]
+[ext_resource type="AudioStream" uid="uid://cx7c73ala5liq" path="res://sound/d5894c4cb7ae209.mp3" id="3_c05pp"]
+[ext_resource type="PackedScene" uid="uid://ck05cywk2uo66" path="res://модели/all_high_low_poly_trees_without_floor.tscn" id="3_pwtmi"]
+
+[sub_resource type="Environment" id="Environment_20rw3"]
+background_mode = 1
+background_color = Color(0.00739203, 0, 0.307998, 1)
+background_energy_multiplier = 4.06
+ambient_light_energy = 0.48
+tonemap_mode = 1
+ssao_enabled = true
+ssao_intensity = 1.16
+ssao_power = 1.78381
+fog_enabled = true
+fog_light_color = Color(0.804743, 0.804743, 0.804743, 1)
+fog_light_energy = 0.01
+fog_density = 0.3434
+volumetric_fog_density = 0.4079
+volumetric_fog_emission_energy = 184.24
+volumetric_fog_gi_inject = 1.9
+volumetric_fog_anisotropy = 0.41
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skfnn"]
+albedo_texture = ExtResource("2_n43oe")
+uv1_scale = Vector3(0.17, 0.17, 0.17)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acied"]
+shader = ExtResource("2_jogtt")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.01
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4b2fe"]
+shader = ExtResource("2_jogtt")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.01
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="Gradient" id="Gradient_234rc"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80vtw"]
+gradient = SubResource("Gradient_234rc")
+
+[node name="test_world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_20rw3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(229.004, 0, 0, 0, 1, 0, 0, 0, 383.482, 13.1989, -0.0172956, 9.83047)
+use_collision = true
+size = Vector3(0.643616, 1, 0.311035)
+material = SubResource("StandardMaterial3D_skfnn")
+
+[node name="деревы" type="Node3D" parent="."]
+
+[node name="ALL_high_low_poly_trees_without_floor" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 10.3898, 0.482704, -5.15485)
+
+[node name="ALL_high_low_poly_trees_without_floor3" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 18.801, 0.482704, 9.24117)
+
+[node name="ALL_high_low_poly_trees_without_floor4" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -11.1234, 0.482704, 12.9615)
+
+[node name="ALL_high_low_poly_trees_without_floor5" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -1.12335, 0.482704, -14.0385)
+
+[node name="ALL_high_low_poly_trees_without_floor6" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -17.1234, 0.482704, -2.0385)
+
+[node name="ALL_high_low_poly_trees_without_floor7" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 21.6974, 0.482704, -26.6839)
+
+[node name="ALL_high_low_poly_trees_without_floor8" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 39.1667, 0.482704, -21.1843)
+
+[node name="ALL_high_low_poly_trees_without_floor9" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 45.1667, 0.482704, -6.18433)
+
+[node name="ALL_high_low_poly_trees_without_floor10" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 41.2847, 0.482704, 5.30013)
+
+[node name="ALL_high_low_poly_trees_without_floor11" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 31.7412, 0.482704, 27.2691)
+
+[node name="ALL_high_low_poly_trees_without_floor12" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.74124, 0.482704, 27.2691)
+
+[node name="ALL_high_low_poly_trees_without_floor13" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -31.9472, 0.482704, 10.6085)
+
+[node name="ALL_high_low_poly_trees_without_floor14" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -30.0062, 0.482704, -14.1397)
+
+[node name="ALL_high_low_poly_trees_without_floor15" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -9.27232, 0.482704, -27.6975)
+
+[node name="ALL_high_low_poly_trees_without_floor16" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -27.2723, 0.482704, -34.6975)
+
+[node name="ALL_high_low_poly_trees_without_floor18" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.8352, 0.482704, -36.6586)
+
+[node name="ALL_high_low_poly_trees_without_floor20" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 34.8352, 0.482704, -38.6586)
+
+[node name="ALL_high_low_poly_trees_without_floor21" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 54.8352, 0.482704, -31.6586)
+
+[node name="ALL_high_low_poly_trees_without_floor22" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 61.8352, 0.482704, -11.6586)
+
+[node name="ALL_high_low_poly_trees_without_floor23" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 60.6132, 0.482704, 6.67091)
+
+[node name="ALL_high_low_poly_trees_without_floor24" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 51.6132, 0.482704, 26.6709)
+
+[node name="ALL_high_low_poly_trees_without_floor25" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 16.6132, 0.482704, 34.6709)
+
+[node name="ALL_high_low_poly_trees_without_floor26" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -9.38676, 0.482704, 27.6709)
+
+[node name="ALL_high_low_poly_trees_without_floor27" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -25.6796, 0.482704, 22.7831)
+
+[node name="ALL_high_low_poly_trees_without_floor28" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -19.6796, 0.482704, 34.7831)
+
+[node name="ALL_high_low_poly_trees_without_floor32" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 49.7574, 0.482704, 42.0439)
+
+[node name="ALL_high_low_poly_trees_without_floor33" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 69.3088, 0.482704, 30.2316)
+
+[node name="ALL_high_low_poly_trees_without_floor34" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 78.2699, 0.482704, 9.86552)
+
+[node name="ALL_high_low_poly_trees_without_floor35" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 77.8626, 0.482704, -4.39077)
+
+[node name="ALL_high_low_poly_trees_without_floor36" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 77.8626, 0.482704, -19.3908)
+
+[node name="ALL_high_low_poly_trees_without_floor37" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 69.3088, 0.482704, -28.3519)
+
+[node name="ALL_high_low_poly_trees_without_floor39" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 47.3088, 0.482704, -40.3519)
+
+[node name="ALL_high_low_poly_trees_without_floor2" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 27.6877, 0.482704, -5.15485)
+
+[node name="ALL_high_low_poly_trees_without_floor83" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 28.8351, 0.482704, 15.3007)
+
+[node name="ALL_high_low_poly_trees_without_floor85" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -2.22345, 0.482704, 15.1301)
+
+[node name="ALL_high_low_poly_trees_without_floor86" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -2.22345, 0.482704, 6.13005)
+
+[node name="ALL_high_low_poly_trees_without_floor87" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -9.34628, 0.482704, 1.66591)
+
+[node name="ALL_high_low_poly_trees_without_floor88" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -0.472399, 0.482704, -2.25907)
+
+[node name="ALL_high_low_poly_trees_without_floor89" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.5276, 0.482704, 12.7409)
+
+[node name="ALL_high_low_poly_trees_without_floor90" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 11.5276, 0.482704, 17.7409)
+
+[node name="ALL_high_low_poly_trees_without_floor91" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 27.0569, 0.482704, 7.16053)
+
+[node name="ALL_high_low_poly_trees_without_floor92" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 33.371, 0.482704, 1.35838)
+
+[node name="ALL_high_low_poly_trees_without_floor93" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 36.371, 0.482704, 15.3584)
+
+[node name="ALL_high_low_poly_trees_without_floor94" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 18.6232, 0.482704, -1.70678)
+
+[node name="ALL_high_low_poly_trees_without_floor95" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 24.2547, 0.482704, -16.3828)
+
+[node name="ALL_high_low_poly_trees_without_floor96" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 34.2547, 0.482704, -13.3828)
+
+[node name="ALL_high_low_poly_trees_without_floor97" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -10.7453, 0.482704, -9.38281)
+
+[node name="ALL_high_low_poly_trees_without_floor98" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -11.5985, 0.482704, -18.9393)
+
+[node name="ALL_high_low_poly_trees_without_floor99" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -3.59853, 0.482704, -21.9393)
+
+[node name="ALL_high_low_poly_trees_without_floor100" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 7.83513, 0.482704, -15.2839)
+
+[node name="ALL_high_low_poly_trees_without_floor101" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 4.83513, 0.482704, -22.2839)
+
+[node name="ALL_high_low_poly_trees_without_floor102" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 13.1971, 0.482704, -25.3556)
+
+[node name="ALL_high_low_poly_trees_without_floor103" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -0.284416, 0.482704, -29.7926)
+
+[node name="ALL_high_low_poly_trees_without_floor104" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 30.7156, 0.482704, -22.7926)
+
+[node name="ALL_high_low_poly_trees_without_floor105" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 45.7156, 0.482704, -15.7926)
+
+[node name="ALL_high_low_poly_trees_without_floor106" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 48.7873, 0.482704, 1.9552)
+
+[node name="ALL_high_low_poly_trees_without_floor107" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 46.7873, 0.482704, 12.9552)
+
+[node name="ALL_high_low_poly_trees_without_floor108" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 37.7873, 0.482704, 21.9552)
+
+[node name="ALL_high_low_poly_trees_without_floor109" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 19.7873, 0.482704, 14.9552)
+
+[node name="ALL_high_low_poly_trees_without_floor110" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -2.90936, 0.482704, 30.1432)
+
+[node name="ALL_high_low_poly_trees_without_floor111" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -19.8039, 0.482704, 6.25197)
+
+[node name="ALL_high_low_poly_trees_without_floor112" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 47.1961, 0.482704, -23.748)
+
+[node name="ALL_high_low_poly_trees_without_floor164" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -50.9433, 0.482704, 6.95703)
+
+[node name="ALL_high_low_poly_trees_without_floor165" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -41.9822, 0.482704, -13.4091)
+
+[node name="ALL_high_low_poly_trees_without_floor166" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -42.3895, 0.482704, -27.6653)
+
+[node name="ALL_high_low_poly_trees_without_floor167" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -42.3895, 0.482704, -42.6653)
+
+[node name="ALL_high_low_poly_trees_without_floor17" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 18.9812, 0.482704, 23.8432)
+
+[node name="ALL_high_low_poly_trees_without_floor19" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 11.8029, 0.482704, 8.79448)
+
+[node name="ALL_high_low_poly_trees_without_floor29" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 41.9335, 0.482704, 7.58858)
+
+[node name="ALL_high_low_poly_trees_without_floor30" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 29.7115, 0.482704, 33.6582)
+
+[node name="ALL_high_low_poly_trees_without_floor31" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 46.6586, 0.482704, 23.0376)
+
+[node name="ALL_high_low_poly_trees_without_floor38" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 5.91357, 0.482704, 44.3517)
+
+[node name="ALL_high_low_poly_trees_without_floor40" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -11.0349, 0.482704, 37.4111)
+
+[node name="ALL_high_low_poly_trees_without_floor41" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -15.7601, 0.482704, 21.9621)
+
+[node name="ALL_high_low_poly_trees_without_floor42" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -10.9316, 0.482704, 10.8423)
+
+[node name="ALL_high_low_poly_trees_without_floor43" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 0.41487, 0.482704, -10.252)
+
+[node name="ALL_high_low_poly_trees_without_floor44" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 26.3239, 0.482704, -8.07866)
+
+[node name="ALL_high_low_poly_trees_without_floor45" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 62.4878, 0.482704, 11.674)
+
+[node name="ALL_high_low_poly_trees_without_floor46" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 58.4848, 0.482704, 36.1734)
+
+[node name="ALL_high_low_poly_trees_without_floor47" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 36.6902, 0.482704, 47.9505)
+
+[node name="ALL_high_low_poly_trees_without_floor48" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 54.042, 0.482704, 56.4307)
+
+[node name="ALL_high_low_poly_trees_without_floor49" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 20.8865, 0.482704, 55.6174)
+
+[node name="ALL_high_low_poly_trees_without_floor50" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -8.17922, 0.482704, 55.1863)
+
+[node name="ALL_high_low_poly_trees_without_floor51" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -27.5241, 0.482704, 46.539)
+
+[node name="ALL_high_low_poly_trees_without_floor52" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -32.8278, 0.482704, 26.0238)
+
+[node name="ALL_high_low_poly_trees_without_floor53" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -30.0779, 0.482704, 7.86061)
+
+[node name="ALL_high_low_poly_trees_without_floor54" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -19.4376, 0.482704, -11.3171)
+
+[node name="ALL_high_low_poly_trees_without_floor55" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 16.1086, 0.482704, -16.3634)
+
+[node name="ALL_high_low_poly_trees_without_floor56" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 41.4325, 0.482704, -7.21452)
+
+[node name="ALL_high_low_poly_trees_without_floor57" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 57.2598, 0.482704, -0.981836)
+
+[node name="ALL_high_low_poly_trees_without_floor58" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 52.2839, 0.482704, -13.4414)
+
+[node name="ALL_high_low_poly_trees_without_floor59" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -16.3032, 0.482704, -26.4812)
+
+[node name="ALL_high_low_poly_trees_without_floor60" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -36.7736, 0.482704, -16.3445)
+
+[node name="ALL_high_low_poly_trees_without_floor61" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -47.4057, 0.482704, 3.20125)
+
+[node name="ALL_high_low_poly_trees_without_floor62" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -48.1915, 0.482704, 17.4417)
+
+[node name="ALL_high_low_poly_trees_without_floor63" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -49.4454, 0.482704, 32.3892)
+
+[node name="ALL_high_low_poly_trees_without_floor64" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -41.6706, 0.482704, 42.0339)
+
+[node name="ALL_high_low_poly_trees_without_floor65" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, -20.7507, 0.482704, 55.8309)
+
+[node name="ALL_high_low_poly_trees_without_floor66" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 1.74388, 0.482704, 22.3973)
+
+[node name="ALL_high_low_poly_trees_without_floor84" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 72.2457, 0.482704, -18.3074)
+
+[node name="ALL_high_low_poly_trees_without_floor168" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 81.1121, 0.482704, 16.9006)
+
+[node name="ALL_high_low_poly_trees_without_floor169" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 70.4799, 0.482704, 36.4464)
+
+[node name="ALL_high_low_poly_trees_without_floor170" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 69.6941, 0.482704, 50.6868)
+
+[node name="ALL_high_low_poly_trees_without_floor171" parent="деревы" instance=ExtResource("3_pwtmi")]
+transform = Transform3D(-2.51118, 0, 0.210649, 0, 2.52, 0, -0.210649, 0, -2.51118, 68.4403, 0.482704, 65.6343)
+
+[node name="Character" parent="." instance=ExtResource("1_e18vq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25467, 3.17502, 0)
+
+[node name="Camera" parent="Character/Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Character/Head/Camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, -0.0741091, 0.00258793)
+light_energy = 1.715
+spot_range = 11.9392
+spot_angle = 45.8099
+
+[node name="HeadbobAnimation" parent="Character/Head" index="1"]
+blend_times = [&"walk", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"RESET", &"RESET", 0.5]
+
+[node name="UserInterface" parent="Character" index="4"]
+visible = false
+
+[node name="DebugPanel" parent="Character/UserInterface" index="0"]
+visible = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67366, 0)
+stream = ExtResource("2_27drc")
+volume_db = 1.524
+unit_size = 33.79
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84065, 0)
+stream = ExtResource("3_c05pp")
+volume_db = 22.857
+unit_size = 31.88
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67407, 1.24553, -0.676025)
+size = Vector3(4.34814, 1.02002, 2.35205)
+material = SubResource("ShaderMaterial_acied")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4b2fe")
+position = Vector2(575.5, 321.5)
+scale = Vector2(17.9844, 10.0469)
+texture = SubResource("GradientTexture2D_80vtw")
+
+[editable path="Character"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://nvivmf24618h"]
+
+[ext_resource type="Script" path="res://script/door.gd" id="1_4nkjx"]
+[ext_resource type="AudioStream" uid="uid://b8cokytxx138k" path="res://sound/9b3846a020de4c5.mp3" id="2_a56p8"]
+
+[sub_resource type="Animation" id="Animation_3tra6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4lx7q"]
+resource_name = "back"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 0.378929),
+"update": 0,
+"values": [Vector2(-18, -40), Vector2(-18, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r4dn6"]
+resource_name = "enter"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(-18, -16), Vector2(-18, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y214y"]
+_data = {
+"RESET": SubResource("Animation_3tra6"),
+"back": SubResource("Animation_4lx7q"),
+"enter": SubResource("Animation_r4dn6")
+}
+
+[node name="scene_trigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_4nkjx")
+connected_scene = "room1"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 85.0001
+offset_bottom = 46.0
+scale = Vector2(0.291101, 0.296433)
+theme_override_font_sizes/font_size = 39
+text = "enter
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Button")
+libraries = {
+"": SubResource("AnimationLibrary_y214y")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a56p8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

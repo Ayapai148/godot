@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs63exvu0wvqi"]
+
+[ext_resource type="Texture2D" uid="uid://c1wpjs3ppyqiu" path="res://dialogue/Sprite-0001.png" id="1_8xreq"]
+[ext_resource type="Script" path="res://dialogue/dialog.gd" id="1_m8qvx"]
+[ext_resource type="Texture2D" uid="uid://bx3evetmi0ex3" path="res://textura/i.webp" id="2_8vg36"]
+
+[node name="dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 288.0
+offset_right = 296.0
+offset_bottom = 328.0
+script = ExtResource("1_m8qvx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -147.5)
+scale = Vector2(0.882727, 0.462818)
+texture = ExtResource("2_8vg36")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -288.0
+offset_right = 144.0
+offset_bottom = -8.0
+texture = ExtResource("1_8xreq")
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 84.0
+offset_right = 259.0
+offset_bottom = 196.0
